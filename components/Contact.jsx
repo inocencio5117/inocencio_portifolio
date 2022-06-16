@@ -163,7 +163,7 @@ function Contact() {
                 </div>
 
                 <button className="w-full p-4 text-gray-100 mt-4">
-                  Send Message
+                  {translations.contact.form.button}
                 </button>
               </form>
             </div>

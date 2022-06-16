@@ -38,6 +38,22 @@ export default {
     what: "What I've Build",
     more: "More info",
   },
+  projectList: {
+    proj: "Project",
+    over: "Overview",
+    techs: "Technologies",
+    demo: "Demo",
+    code: "Code",
+    back: "Back",
+    numenera: {
+      name: "Numenera Character Generator",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor similique doloribus voluptate dolorum fugiat, officiis praesentium, quod blanditiis quas delectus, alias saepe fugit laborum porro quos repellat rem illo. Tenetur!",
+      techs: "React JS / Sass / Typescript",
+      techsList: ["React", "Sass", "Typescript", "React Router DOM"],
+    },
+    portifolio: {},
+  },
   contact: {
     sectionName: "Contact",
     get: "Get in touch",
@@ -51,6 +67,7 @@ export default {
       email: "Email",
       subject: "Subject",
       message: "Message",
+      button: "Send Message",
     },
   },
 };

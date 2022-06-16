@@ -2,10 +2,8 @@ import React from "react";
 import { useRouter } from "next/router";
 
 import ProjectItem from "./ProjectItem";
-import propertyImg from "../public/assets/projects/property.jpg";
+import numeneraImg from "../public/assets/projects/numenera.png";
 import cryptoImg from "../public/assets/projects/crypto.jpg";
-import netflixImg from "../public/assets/projects/netflix.jpg";
-import twitchImg from "../public/assets/projects/twitch.jpg";
 
 import en from "../locales/en";
 import ptBR from "../locales/ptBR";
@@ -27,27 +25,15 @@ function Projects() {
 
         <div className="grid md:grid-cols-2 gap-8">
           <ProjectItem
-            title="Property Finder"
-            backgroundImg={propertyImg}
-            projectUrl="/property"
+            title="Numenera Charachter Generator"
+            backgroundImg={numeneraImg}
+            projectUrl="/numenera"
           />
 
           <ProjectItem
-            title="Crypto App"
+            title="Portifolio"
             backgroundImg={cryptoImg}
-            projectUrl="/crypto"
-          />
-
-          <ProjectItem
-            title="Netflix"
-            backgroundImg={netflixImg}
-            projectUrl="/netflix"
-          />
-
-          <ProjectItem
-            title="Property Finder"
-            backgroundImg={twitchImg}
-            projectUrl="/twitch"
+            projectUrl="/portifolio"
           />
         </div>
       </div>
