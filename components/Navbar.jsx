@@ -13,6 +13,8 @@ import {
   BsFillPersonLinesFill,
 } from "react-icons/bs";
 
+import logoImg from "../public/assets/navLogo.png";
+
 import en from "../locales/en";
 import ptBR from "../locales/ptBR";
 
@@ -91,7 +93,7 @@ const Navbar = () => {
         <Link href="/">
           <Image
             className="cursor-pointer"
-            src="/../public/assets/navLogo.png"
+            src={logoImg}
             alt="/"
             width="125"
             height="50"
@@ -166,12 +168,7 @@ const Navbar = () => {
           <div>
             <div className="flex w-full items-center justify-between">
               <Link href="/">
-                <Image
-                  src="/../public/assets/navLogo.png"
-                  alt="/"
-                  width="87"
-                  height="35"
-                />
+                <Image src={logoImg} alt="/" width="87" height="35" />
               </Link>
 
               <div
