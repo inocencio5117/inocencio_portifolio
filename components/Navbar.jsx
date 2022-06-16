@@ -3,17 +3,30 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useTheme } from "next-themes";
 
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import { BsFillPersonLinesFill } from "react-icons/bs";
+import {
+  BsFillMoonFill,
+  BsFillSunFill,
+  BsFillPersonLinesFill,
+} from "react-icons/bs";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
   const [navBg, setNavBg] = useState("#ecf0f3");
   const [linkColor, setLinkColor] = useState("#1f2937");
+  const [mounted, setMounted] = useState(false);
+
+  const { systemTheme, theme, setTheme } = useTheme();
+
   const router = useRouter();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (
@@ -46,6 +59,32 @@ const Navbar = () => {
     window.addEventListener("scroll", handleShadow);
   }, []);
 
+  const renderThemeChanger = () => {
+    if (!mounted) return null;
+
+    const currentTheme = theme === "system" ? systemTheme : theme;
+
+    if (currentTheme === "dark") {
+      return (
+        <span
+          className="bg-gray-300 text-black hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 cursor-pointer"
+          onClick={() => setTheme("light")}
+        >
+          <BsFillSunFill />
+        </span>
+      );
+    } else {
+      return (
+        <span
+          className="bg-gray-300 text-black hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 cursor-pointer"
+          onClick={() => setTheme("dark")}
+        >
+          <BsFillMoonFill />
+        </span>
+      );
+    }
+  };
+
   return (
     <div
       style={{ background: `${navBg}` }}
@@ -65,6 +104,8 @@ const Navbar = () => {
             height="50"
           />
         </Link>
+
+        {renderThemeChanger()}
 
         <div>
           <ul style={{ color: `${linkColor}` }} className="hidden md:flex">
