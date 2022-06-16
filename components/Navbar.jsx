@@ -67,7 +67,7 @@ const Navbar = () => {
     if (currentTheme === "dark") {
       return (
         <span
-          className="bg-gray-300 text-black hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 cursor-pointer"
+          className="bg-gray-700 text-white hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 cursor-pointer"
           onClick={() => setTheme("light")}
         >
           <BsFillSunFill />
@@ -145,7 +145,7 @@ const Navbar = () => {
         <div
           className={
             nav
-              ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
+              ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen dark:bg-gray-900 bg-[#ecf0f3] p-10 ease-in duration-500"
               : "fixed left-[-100%] p-10 ease-in duration-500"
           }
         >
@@ -162,7 +162,7 @@ const Navbar = () => {
 
               <div
                 onClick={handleNav}
-                className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer"
+                className="rounded-full shadow-lg shadow-gray-400 dark:shadow-gray-800 p-3 cursor-pointer"
               >
                 <AiOutlineClose />
               </div>
@@ -206,20 +206,40 @@ const Navbar = () => {
               <p className="uppercase tracking-widest text-[#5651e5]">
                 Lets connect
               </p>
+
               <div>
                 <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                    <FaLinkedin />
+                  <div className="rounded-full shadow-lg shadow-gray-400 dark:shadow-gray-800 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                    <a
+                      href="https://www.linkedin.com/in/vinicius-inocencio/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FaLinkedin />
+                    </a>
                   </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                    <FaGithub />
+
+                  <div className="rounded-full shadow-lg shadow-gray-400 dark:shadow-gray-800 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                    <a
+                      href="https://github.com/inocencio5117"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FaGithub />
+                    </a>
                   </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+
+                  <div className="rounded-full shadow-lg shadow-gray-400 dark:shadow-gray-800 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
                     <AiOutlineMail />
                   </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                    <BsFillPersonLinesFill />
-                  </div>
+
+                  <Link href="/#about">
+                    <a>
+                      <div className="rounded-full shadow-lg shadow-gray-400 dark:shadow-gray-800 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                        <BsFillPersonLinesFill />
+                      </div>
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>
