@@ -38,10 +38,10 @@ const Navbar = () => {
       setNavBg("transparent");
       setLinkColor("#ecf0f3");
     } else {
-      setNavBg("#ecf0f3");
-      setLinkColor("#1f2937");
+      setNavBg(theme === "dark" ? "#111827 " : "#ecf0f3");
+      setLinkColor(theme === "dark" ? "#ecf0f3" : "#111827");
     }
-  }, [router]);
+  }, [router, theme]);
 
   const handleNav = () => {
     setNav(!nav);

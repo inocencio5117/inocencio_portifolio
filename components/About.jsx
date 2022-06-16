@@ -10,26 +10,28 @@ function About() {
           </p>
           <h2 className="py-4">Who I Am</h2>
 
-          <p className="py-2 text-gray-600">I Am not a normal developer</p>
-          <p className="py-2 text-gray-600">
+          <p className="py-2 text-gray-600 dark:text-gray-400">
+            I Am not a normal developer
+          </p>
+          <p className="py-2 text-gray-600 dark:text-gray-400">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
             similique doloribus voluptate dolorum fugiat, officiis praesentium,
             quod blanditiis quas delectus, alias saepe fugit laborum porro quos
             repellat rem illo. Tenetur!
           </p>
 
-          <p className="py-2 text-gray-600">
+          <p className="py-2 text-gray-600 dark:text-gray-400">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
             similique doloribus voluptate dolorum fugiat, officiis praesentium,
             quod blanditiis quas delectus, alias saepe fugit laborum porro quos
             repellat rem illo. Tenetur!
           </p>
-          <p className="py-2 text-gray-600">
+          <p className="py-2 text-gray-600 dark:text-gray-400">
             Check out some of my latest professional works
           </p>
         </div>
 
-        <div className="w-full h-auto m-auto shadow-xl shadow-gray-400 rouded-xl flex items-center justify-center p-4 hover:scale-105 duration-300">
+        <div className="w-full h-auto m-auto shadow-xl shadow-gray-400 dark:shadow-gray-700 rouded-xl flex items-center justify-center p-4 hover:scale-105 duration-300">
           <img
             className="rounded-xl"
             src="https://intl-blog.imgix.net/wp-content/uploads/2021/08/Tech-stack-BR-Capterra-Header.png?w=768"
