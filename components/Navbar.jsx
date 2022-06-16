@@ -13,6 +13,9 @@ import {
   BsFillPersonLinesFill,
 } from "react-icons/bs";
 
+import en from "../locales/en";
+import ptBR from "../locales/ptBR";
+
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
@@ -23,6 +26,14 @@ const Navbar = () => {
   const { systemTheme, theme, setTheme } = useTheme();
 
   const router = useRouter();
+
+  const { locale } = router;
+  const translations = locale === "en" ? en : ptBR;
+
+  const changeLanguage = (e) => {
+    const locale = e.target.value;
+    router.push(router.pathname, router.asPath, { locale });
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -107,25 +118,44 @@ const Navbar = () => {
 
         {renderThemeChanger()}
 
+        <select
+          onChange={changeLanguage}
+          defaultValue={locale}
+          className="text-white text-shadow-sm text-md bg-transparent tracking-wide"
+        >
+          <option className="text-black" value="pt-BR">
+            pt-BR
+          </option>
+          <option className="text-black" value="en">
+            EN
+          </option>
+        </select>
+
         <div>
           <ul style={{ color: `${linkColor}` }} className="hidden md:flex">
             <Link href="/">
-              <li className="ml-10 text-sm uppercase hover:border-b">Home</li>
+              <li className="ml-10 text-sm uppercase hover:border-b">
+                {translations.navbar.home}
+              </li>
             </Link>
             <Link href="/#about">
-              <li className="ml-10 text-sm uppercase hover:border-b">About</li>
+              <li className="ml-10 text-sm uppercase hover:border-b">
+                {translations.navbar.about}
+              </li>
             </Link>
             <Link href="/#skills">
-              <li className="ml-10 text-sm uppercase hover:border-b">Skills</li>
+              <li className="ml-10 text-sm uppercase hover:border-b">
+                {translations.navbar.skills}
+              </li>
             </Link>
             <Link href="/#projects">
               <li className="ml-10 text-sm uppercase hover:border-b">
-                Projects
+                {translations.navbar.projects}
               </li>
             </Link>
             <Link href="/#contact">
               <li className="ml-10 text-sm uppercase hover:border-b">
-                Contact
+                {translations.navbar.contact}
               </li>
             </Link>
           </ul>
@@ -169,7 +199,7 @@ const Navbar = () => {
             </div>
             <div className="border-b border-gray-300 my-4">
               <p className="w-[85%] md=w-[90%] py-4">
-                Lets build something legendary togheter
+                {translations.navbar.mobile.introParagraph}
               </p>
             </div>
           </div>
@@ -177,34 +207,34 @@ const Navbar = () => {
             <ul className="uppercase">
               <Link href="/">
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
-                  Home
+                  {translations.navbar.home}
                 </li>
               </Link>
               <Link href="/#about">
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
-                  About
+                  {translations.navbar.about}
                 </li>
               </Link>
               <Link href="/#skills">
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
-                  Skills
+                  {translations.navbar.skills}
                 </li>
               </Link>
               <Link href="/projects">
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
-                  Projects
+                  {translations.navbar.projects}
                 </li>
               </Link>
               <Link href="/#contact">
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
-                  Contact
+                  {translations.navbar.contact}
                 </li>
               </Link>
             </ul>
 
-            <div className="pt-40">
+            <div className="pt-4">
               <p className="uppercase tracking-widest text-[#5651e5]">
-                Lets connect
+                {translations.navbar.mobile.connect}
               </p>
 
               <div>

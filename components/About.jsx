@@ -1,33 +1,37 @@
 import React from "react";
 
+import { useRouter } from "next/router";
+
+import en from "../locales/en";
+import ptBR from "../locales/ptBR";
+
 function About() {
+  const router = useRouter();
+
+  const { locale } = router;
+  const translations = locale === "en" ? en : ptBR;
+
   return (
     <div id="about" className="w-full md:h-screen p-2 flex items-center py-16">
       <div className="max-w-[1240px] m-auto md:grid grid-cols-3 gap-8">
         <div className="col-span-2">
           <p className="uppercase text-xl tracking-widest text-[#5651e5]">
-            About
+            {translations.about.sectionName}
           </p>
-          <h2 className="py-4">Who I Am</h2>
+          <h2 className="py-4">{translations.about.him}</h2>
 
           <p className="py-2 text-gray-600 dark:text-gray-400">
-            I Am not a normal developer
+            {translations.about.text1}
           </p>
           <p className="py-2 text-gray-600 dark:text-gray-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-            similique doloribus voluptate dolorum fugiat, officiis praesentium,
-            quod blanditiis quas delectus, alias saepe fugit laborum porro quos
-            repellat rem illo. Tenetur!
+            {translations.about.text2}
           </p>
 
           <p className="py-2 text-gray-600 dark:text-gray-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-            similique doloribus voluptate dolorum fugiat, officiis praesentium,
-            quod blanditiis quas delectus, alias saepe fugit laborum porro quos
-            repellat rem illo. Tenetur!
+            {translations.about.text3}
           </p>
           <p className="py-2 text-gray-600 dark:text-gray-400">
-            Check out some of my latest professional works
+            {translations.about.text4}
           </p>
         </div>
 

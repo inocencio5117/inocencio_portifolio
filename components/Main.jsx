@@ -1,31 +1,37 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 
+import en from "../locales/en";
+import ptBR from "../locales/ptBR";
+
 export default function Main() {
+  const router = useRouter();
+
+  const { locale } = router;
+  const translations = locale === "en" ? en : ptBR;
+
   return (
     <div id="home" className="w-full h-screen text-center">
       <div className="max-w-[1240px] w=full h-full mx-auto p-2 flex justify-center items-center">
         <div>
           <p className="mt-5 uppercase text-sm tracking-widest text-gray-600 dark:text-gray-400">
-            LET`S BUILD SOMETHING TOGHETER
+            {translations.main.introParagraph}
           </p>
 
           <h1 className="py-4 text=gray-700">
-            Hi, I`m <span className="text-[#5651e5]">Vinicius</span>
+            {`${translations.main.hello} `}
+            <span className="text-[#5651e5]">{translations.main.name}</span>
           </h1>
 
-          <h1 className="py-2 text=gray-700">A FullStack Web Developer</h1>
+          <h1 className="py-2 text=gray-700">{translations.main.position}</h1>
 
           <p className="py-4 text-gray-600 dark:text-gray-400 max-w-[70%] m-auto">
-            I`m a front-end web develooper Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Iste, in earum vitae quis commodi
-            tempore? Doloribus fugit iste incidunt necessitatibus provident vel
-            nisi officia architecto ipsa, accusantium aut consequuntur
-            repellendus.
+            {translations.main.introText}
           </p>
 
           <div className="flex items-center justify-between max-w-[330px] m-auto py-4">
