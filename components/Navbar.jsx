@@ -17,13 +17,11 @@ import en from "../locales/en";
 import ptBR from "../locales/ptBR";
 
 const Navbar = () => {
+  const { systemTheme, theme, setTheme } = useTheme();
+
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
-  const [navBg, setNavBg] = useState("#ecf0f3");
-  const [linkColor, setLinkColor] = useState("#1f2937");
   const [mounted, setMounted] = useState(false);
-
-  const { systemTheme, theme, setTheme } = useTheme();
 
   const router = useRouter();
 
@@ -38,21 +36,6 @@ const Navbar = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  useEffect(() => {
-    if (
-      router.asPath === "/property" ||
-      router.asPath === "/crypto" ||
-      router.asPath === "/netflix" ||
-      router.asPath === "/twitch"
-    ) {
-      setNavBg("transparent");
-      setLinkColor("#ecf0f3");
-    } else {
-      setNavBg(theme === "dark" ? "#111827 " : "#ecf0f3");
-      setLinkColor(theme === "dark" ? "#ecf0f3" : "#111827");
-    }
-  }, [router, theme]);
 
   const handleNav = () => {
     setNav(!nav);
@@ -98,11 +81,10 @@ const Navbar = () => {
 
   return (
     <div
-      style={{ background: `${navBg}` }}
       className={
         shadow
-          ? "fixed w-full h-20 shadow-xl z-[100]"
-          : "fixed w-full h-20 z-[100]"
+          ? "fixed w-full h-20 shadow-xl z-[100] bg-[#ecf0f3] dark:bg-[#111827]"
+          : "fixed w-full h-20 z-[100] bg-[#ecf0f3] dark:bg-[#111827]"
       }
     >
       <div className="flex justify-between items-center w-full h-full px-2 2-xl:px-16">
@@ -116,23 +98,25 @@ const Navbar = () => {
           />
         </Link>
 
-        {renderThemeChanger()}
+        <div className="ml-10 flex">
+          {renderThemeChanger()}
 
-        <select
-          onChange={changeLanguage}
-          defaultValue={locale}
-          className="text-white text-shadow-sm text-md bg-transparent tracking-wide"
-        >
-          <option className="text-black" value="pt-BR">
-            pt-BR
-          </option>
-          <option className="text-black" value="en">
-            EN
-          </option>
-        </select>
+          <select
+            onChange={changeLanguage}
+            defaultValue={locale}
+            className="ml-5 dark:text-white text-shadow-sm text-md bg-transparent tracking-wide cursor-pointer"
+          >
+            <option className="text-black" value="pt-BR">
+              pt-BR
+            </option>
+            <option className="text-black" value="en">
+              EN
+            </option>
+          </select>
+        </div>
 
         <div>
-          <ul style={{ color: `${linkColor}` }} className="hidden md:flex">
+          <ul className="hidden md:flex items-center">
             <Link href="/">
               <li className="ml-10 text-sm uppercase hover:border-b">
                 {translations.navbar.home}
@@ -220,7 +204,7 @@ const Navbar = () => {
                   {translations.navbar.skills}
                 </li>
               </Link>
-              <Link href="/projects">
+              <Link href="/#projects">
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
                   {translations.navbar.projects}
                 </li>
